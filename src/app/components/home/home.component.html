@@ -1,0 +1,34 @@
+<h2>
+  这是一个home组件
+</h2>
+<p>
+  {{msg}}
+</p>
+<button (click)='getMsg()'>执行方法</button>
+
+<br>
+
+{{username}}
+<br>
+<button (click)='setName()'>执行方法改变username</button>
+
+<!-- 条件判断语句 -->
+<div *ngIf='flag'>flag=true的情况下显示</div>
+<br>
+<button (click)='flag=!flag'>执行方法改变flag</button>
+
+<br>
+<br>
+<input type="text" (keyup)='keyupFn($event)'>
+
+<br>
+<br>
+<button (click)='run($event)'>鼠标事件对象</button>
+
+<br>
+<br>
+<!-- 双向数据绑定 -->
+<input type="text" [(ngModel)]='search'>
+{{search}}
+<br>
+<button (click)='getSearch()'>获取input的值</button>
