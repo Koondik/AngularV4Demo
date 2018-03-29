@@ -1,0 +1,45 @@
+<p>
+  定义属性的两种方法
+  {{title}}
+</p>
+<p>
+  {{msg}}
+</p>
+<p>
+  {{msg1}}
+</p>
+<p>{{username}}</p>
+<p>{{student}}</p>
+<!-- 绑定属性的方法 -->
+<p id="{{id}}">这是一个P标签 调试工具看一下我的属性</p>
+<p title="{{msg}}">1.鼠标秒上去看一下</p>
+<p [title]="msg">2.鼠标秒上去看一下</p>
+
+<!-- 绑定后台的html数据 -->
+<div [innerHTML]='h'></div>
+<!-- 获取对象 -->
+<p>对象数据：{{obj.name}}</p>
+<!-- 数据循环 -->
+<ul>
+  <li *ngFor='let item of list'>{{item}}</li>
+</ul>
+<!-- 数据循环索引值 -->
+<ul>
+  <li *ngFor='let item of list2;let key = index'>{{item}}---{{key}}</li>
+</ul>
+<!-- 二维数据循环 -->
+<ul>
+  <li *ngFor='let item of list4;let key = index'>
+    {{item.catename}}---{{key}}
+    <ol>
+      <li *ngFor="let car of item.list">
+        {{car.title}}
+      </li>
+    </ol>
+  </li>
+</ul>
+<!-- 另一种循环方式template -->
+<ul>
+    <li template="ngFor let item of list">{{item}}</li>
+</ul>
+
