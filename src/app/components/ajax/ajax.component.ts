@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http , Jsonp , Headers} from '@angular/http'; /*引入数据请求模块*/
+//使用rxjs
+import { Observable } from 'rxjs';
+import "rxjs/Rx";
 @Component({
   selector: 'app-ajax',
   templateUrl: './ajax.component.html',
@@ -13,7 +16,9 @@ export class AjaxComponent implements OnInit {
   constructor(private http:Http,private jsonp:Jsonp) { }
 
   ngOnInit() {
+    this.requestRxjsJsonpData();
   }
+
   requestData(){
     var _that = this;
     var url = `http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1`
@@ -25,12 +30,38 @@ export class AjaxComponent implements OnInit {
       
     })
   }
+  requestRxjxData(){  // 使用rxjs
+    var _that = this;
+    var url = `http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1`
+    this.http.get(url).map(res=>res.json()) //返回的数据转为JSON格式
+    .subscribe(function(data){
+      // console.log(JSON.parse(data['_body']));
+      // _that.list = JSON.parse(data['_body'])['result'];
+      console.log(data);
+      _that.list = data.result;
+    },function(error){
+      console.log(error);
+      
+    })
+  }
   requestJsonpData(){ // jsonp 必须在url加回调 &callback=JSONP_CALLBACK
     var _that = this;
     var url = `http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1&callback=JSONP_CALLBACK`
     this.jsonp.get(url).subscribe(function(data){
       // console.log(JSON.parse(data['_body']));
       _that.list = data['_body']['result'];
+    },function(error){
+      console.log(error);
+      
+    })
+  }
+  requestRxjsJsonpData(){ // jsonp 必须在url加回调 &callback=JSONP_CALLBACK
+    var _that = this;
+    var url = `http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1&callback=JSONP_CALLBACK`
+    this.jsonp.get(url).map(res=>res.json()) //返回的数据转为JSON格式
+    .subscribe(function(data){
+      // console.log(JSON.parse(data['_body']));
+      _that.list = data.result;
     },function(error){
       console.log(error);
       
