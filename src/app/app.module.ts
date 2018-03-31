@@ -8,13 +8,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { NewsComponent } from './components/news/news.component';
 import { HomeComponent } from './components/home/home.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
+import { AjaxComponent } from './components/ajax/ajax.component';
+import { ParentComponent } from './components/parent/parent.component';
+import { FooterComponent } from './components/footer/footer.component';
 
-import { StorageService } from './services/storage.service';
-import { AjaxComponent } from './components/ajax/ajax.component';/**引入服务 */
+import { StorageService } from './services/storage.service';/**引入服务 */
 @NgModule({
   declarations: [ /* 引入当前项目运行的组件，自定义组件都需要引入并且在这个里面进行配置 */
     AppComponent,
     HeaderComponent,
+    ParentComponent,
+    FooterComponent,
     AjaxComponent,
     NewsComponent,
     HomeComponent,

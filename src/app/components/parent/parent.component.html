@@ -1,0 +1,8 @@
+<app-header [msg]='msg' [name]='name'></app-header>
+<p>
+  这是个父组件
+</p>
+<h4>{{msg}}</h4>
+<button (click)= 'run()' >执行run方法</button>
+
+<app-footer [msg]='msg' [run]='run' [getDataFromChild]='getDataFromChild' ></app-footer>    

@@ -16,7 +16,7 @@ export class AjaxComponent implements OnInit {
   constructor(private http:Http,private jsonp:Jsonp) { }
 
   ngOnInit() {
-    this.requestRxjsJsonpData();
+    // this.requestRxjsJsonpData();
   }
 
   requestData(){
@@ -55,7 +55,7 @@ export class AjaxComponent implements OnInit {
       
     })
   }
-  requestRxjsJsonpData(){ // jsonp 必须在url加回调 &callback=JSONP_CALLBACK
+  requestRxjsJsonpData(e){ // jsonp 必须在url加回调 &callback=JSONP_CALLBACK
     var _that = this;
     var url = `http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1&callback=JSONP_CALLBACK`
     this.jsonp.get(url).map(res=>res.json()) //返回的数据转为JSON格式
@@ -66,6 +66,8 @@ export class AjaxComponent implements OnInit {
       console.log(error);
       
     })
+    console.log(e);
+    
   }
   postData(){
     /*
