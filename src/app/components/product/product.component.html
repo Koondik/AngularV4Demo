@@ -1,0 +1,17 @@
+<div>
+  这是商品组件
+  <button (click)='cart.run()'>调用cart组件里的方法</button>
+  --
+  --
+  {{cart.msg}}
+<br>
+<br>
+<br>
+<button (click)='getChildData()'>父组件调用自己的方法获取子组件的数据</button>
+<br>
+<br>
+</div>
+<hr>
+<br>
+<br>
+<app-cart #cart></app-cart>

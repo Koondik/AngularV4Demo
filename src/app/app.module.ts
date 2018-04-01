@@ -13,12 +13,16 @@ import { ParentComponent } from './components/parent/parent.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { StorageService } from './services/storage.service';/**引入服务 */
+import { ProductComponent } from './components/product/product.component';
+import { CartComponent } from './components/cart/cart.component';
 @NgModule({
   declarations: [ /* 引入当前项目运行的组件，自定义组件都需要引入并且在这个里面进行配置 */
     AppComponent,
     HeaderComponent,
     ParentComponent,
     FooterComponent,
+    ProductComponent,
+    CartComponent,
     AjaxComponent,
     NewsComponent,
     HomeComponent,
