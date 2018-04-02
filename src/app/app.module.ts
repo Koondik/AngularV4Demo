@@ -11,10 +11,14 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { AjaxComponent } from './components/ajax/ajax.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-import { StorageService } from './services/storage.service';/**引入服务 */
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
+
+
+import { StorageService } from './services/storage.service';/**引入服务 */
+
+
+import { AppRoutingModule } from "./app-routing.module"; //引入路由文件
 @NgModule({
   declarations: [ /* 引入当前项目运行的组件，自定义组件都需要引入并且在这个里面进行配置 */
     AppComponent,
@@ -32,7 +36,8 @@ import { CartComponent } from './components/cart/cart.component';
     BrowserModule,
     FormsModule,
     HttpModule, //注入模块
-    JsonpModule
+    JsonpModule,
+    AppRoutingModule // 注入路由模块
   ],
   providers: [ StorageService ], /* 定义的服务 回头放在这个里面 */
   bootstrap: [AppComponent] /* 默认启动那个组件 */
