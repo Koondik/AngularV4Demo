@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+// 引入 ActivatedRoute模块
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -32,7 +33,8 @@ export class NewsComponent implements OnInit {
   public obj = {
     name:'李四'
   }
-  constructor() { 
+  constructor(private route:ActivatedRoute) {  //实例化模块
+
     this.msg = '这是另一种定义属性的方法'
     //去服务器请求数据 新闻类
      this.h = "<h2>这是新闻的数据</h2>"
@@ -62,6 +64,10 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // 获取动态路由的传值
+    this.route.params.subscribe(function(data){
+        console.log(data.id);
+    })
   }
 
 }

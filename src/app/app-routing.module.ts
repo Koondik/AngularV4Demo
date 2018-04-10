@@ -12,7 +12,7 @@ import { ParentComponent } from './components/parent/parent.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
-
+import { NewsComponent } from './components/news/news.component';
 //配置路由  
 const routes:Routes = [
     {
@@ -33,6 +33,11 @@ const routes:Routes = [
     {
         path:'Product',
         component:ProductComponent,
+        children:[]
+    },
+    {
+        path:'News/:id',  /* 配置动态路由 */
+        component:NewsComponent,
         children:[]
     },
     //默认跳转的路由
