@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// 引入 ActivatedRoute模块
-import { ActivatedRoute } from "@angular/router";
+// 引入 ActivatedRoute模块   引入Router模块
+import { ActivatedRoute , Router , NavigationExtras} from "@angular/router";
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -33,7 +33,21 @@ export class NewsComponent implements OnInit {
   public obj = {
     name:'李四'
   }
-  constructor(private route:ActivatedRoute) {  //实例化模块
+  goTodoList(){
+    //跳转至todolist路由
+     this.router.navigate(["Todolist"]);
+    //  this.router.navigate(["News","2"]);
+  }
+  goShopList(id){
+    let navigationExtras : NavigationExtras = {
+      queryParams:{'aid':id},
+      fragment:'anchor'   //锚点
+    }
+    //跳转路由get传值
+    this.router.navigate(["ShopList"],navigationExtras);    
+  }
+
+  constructor(private route:ActivatedRoute,private router:Router) {  //实例化模块
 
     this.msg = '这是另一种定义属性的方法'
     //去服务器请求数据 新闻类
@@ -61,7 +75,8 @@ export class NewsComponent implements OnInit {
         ]
        }
       ];
-  }
+
+    }
 
   ngOnInit() {
     // 获取动态路由的传值

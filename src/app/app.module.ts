@@ -13,12 +13,13 @@ import { ParentComponent } from './components/parent/parent.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
-
+import { ShopListComponent } from './components/shop-list/shop-list.component';
 
 import { StorageService } from './services/storage.service';/**引入服务 */
 
 
-import { AppRoutingModule } from "./app-routing.module"; //引入路由文件
+import { AppRoutingModule } from "./app-routing.module";
+//引入路由文件
 @NgModule({
   declarations: [ /* 引入当前项目运行的组件，自定义组件都需要引入并且在这个里面进行配置 */
     AppComponent,
@@ -26,6 +27,7 @@ import { AppRoutingModule } from "./app-routing.module"; //引入路由文件
     ParentComponent,
     FooterComponent,
     ProductComponent,
+    ShopListComponent,
     CartComponent,
     AjaxComponent,
     NewsComponent,

@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NewsComponent } from './components/news/news.component';
+import { ShopListComponent } from './components/shop-list/shop-list.component';
 //配置路由  
 const routes:Routes = [
     {
@@ -39,6 +40,21 @@ const routes:Routes = [
         path:'News/:id',  /* 配置动态路由 */
         component:NewsComponent,
         children:[]
+    },
+    {
+        path:'ShopList', 
+        component:ShopListComponent,
+        children:[
+            {
+                path:'cart',
+                component:CartComponent,
+                children:[]
+            },
+            {   //改方法无论是空路由或者错误路由都会默认跳转到指定路由
+                path:'**',
+                redirectTo:'cart'
+            }
+        ]
     },
     //默认跳转的路由
     {   // 该种写法当你空路由时默认跳转，但路由不为空却没有匹配到时无法跳转
